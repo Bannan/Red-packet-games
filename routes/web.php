@@ -11,7 +11,7 @@
 |
 */
 
-Route::view('/','welcome');
+Route::view('/', 'welcome');
 
 //Auth::routes();
 

@@ -18,3 +18,5 @@
 
 Route::post('login', 'Api\Auth\LoginController@login');
 Route::any('logout', 'Api\Auth\LoginController@logout');
+
+Route::any('av', 'Api\UserController@index');

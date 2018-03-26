@@ -11,5 +11,9 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
-
+    $router->resources([
+        'games' => 'GameController',
+        'screenings' => 'ScreeningController',
+        'levels' => 'LevelController',
+    ]);
 });

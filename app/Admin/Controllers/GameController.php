@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Game;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -9,7 +10,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class ExampleController extends Controller
+class GameController extends Controller
 {
     use ModelForm;
 
@@ -22,8 +23,8 @@ class ExampleController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('游戏');
+            $content->description('列表');
 
             $content->body($this->grid());
         });
@@ -39,8 +40,8 @@ class ExampleController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('游戏');
+            $content->description('修改');
 
             $content->body($this->form()->edit($id));
         });
@@ -55,8 +56,8 @@ class ExampleController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('游戏');
+            $content->description('创建');
 
             $content->body($this->form());
         });
@@ -69,12 +70,12 @@ class ExampleController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(YourModel::class, function (Grid $grid) {
+        return Admin::grid(Game::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->title('名称');
+            $grid->created_at('创建日期');
+            $grid->updated_at('修改日期');
         });
     }
 
@@ -85,12 +86,12 @@ class ExampleController extends Controller
      */
     protected function form()
     {
-        return Admin::form(YourModel::class, function (Form $form) {
-
+        return Admin::form(Game::class, function (Form $form) {
             $form->display('id', 'ID');
+            $form->text('title', '游戏名称')->rules('required|string');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('created_at', '创建日期');
+            $form->display('updated_at', '修改日期');
         });
     }
 }
