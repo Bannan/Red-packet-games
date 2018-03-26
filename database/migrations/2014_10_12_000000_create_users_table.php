@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('openid', 32)->unique()->index()->comment('微信id');
             $table->string('mobile')->unique()->comment('手机号');
             $table->string('password')->comment('密码');
+            $table->string('safety_code')->comment('安全码');
             $table->string('nickname', 30)->nullable()->comment('昵称');
             $table->string('api_token', 64)->nullable()->comment('token认证');
             $table->string('parent_id')->nullable()->index()->comment('推荐人id');
