@@ -32,7 +32,7 @@ if (!function_exists('send_sms_code')) {
             Sms::create(['mobile' => $mobile, 'vars' => $message, 'result' => $res, 'op' => $fn]);
             $arr = head($res);
             if ($arr['status'] === 'success') {
-                Cache::put($ip . $fn, $code);
+                Cache::put($ip . $fn, $code, 10);
                 Cache::put($ip . 'sms_cannot_send', true, 1);
                 return ['message' => '短信发送成功。'];
             }
