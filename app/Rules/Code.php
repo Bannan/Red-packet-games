@@ -3,19 +3,20 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Request;
 
 class Code implements Rule
 {
-    private $op;
+    private $fn;
 
     /**
-     * Create a new rule instance.
-     *
-     * @return void
+     * Code constructor.
+     * @param String $fn
      */
-    public function __construct(String $op)
+    public function __construct(String $fn)
     {
-        $this->op = $op;
+        $this->fn = $fn;
     }
 
     /**
@@ -27,8 +28,9 @@ class Code implements Rule
      */
     public function passes($attribute, $value)
     {
-        if (session()->get($this->op) == $value) {
-            session()->forget($this->op);
+        $key = Request::getClientIp() . $this->fn;
+        if (Cache::get($key) == $value) {
+            Cache::forget($key);
             return true;
         }
         return false;
