@@ -18,7 +18,6 @@ class CreateLevelsTable extends Migration
             $table->increments('id');
             $table->string('title')->comment('名称,如：会员级别');
             $table->unsignedDecimal('min')->comment('最小金额');
-            $table->unsignedDecimal('max')->comment('最大金额');
             $table->unsignedDecimal('rebate')->comment('返点比例，如：0.05');
             $table->timestamps();
 
