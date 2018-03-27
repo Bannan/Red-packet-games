@@ -76,7 +76,8 @@ class ScreeningController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->column('game.title', '所属游戏')->sortable();
-            $grid->title('名称');
+            $grid->title('场次名称');
+            $grid->num('每组人数');
 
             $grid->created_at('创建日期');
             $grid->updated_at('修改日期');
@@ -101,7 +102,7 @@ class ScreeningController extends Controller
 
                 $form->select('game_id', '所属游戏')->options(Game::pluck('title', 'id'));
                 $form->text('title', '场次名称')->rules('required|string');
-                $form->number('num', '进入人数')->rules('required|numeric');
+                $form->number('num', '每组人数')->rules('required|numeric');
 
                 $form->display('created_at', '创建日期');
                 $form->display('updated_at', '修改日期');
