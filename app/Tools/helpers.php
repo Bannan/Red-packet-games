@@ -18,14 +18,14 @@ if (!function_exists('send_sms_code')) {
         }
         $code = random_int(10000, 99999);
         $message = ['template' => $template, 'data' => ['code' => $code]];
-        /*
-            if (env('APP_DEBUG')) {
-                session()->put($fn, $code);
-                Cache::put('sms_cannot_send', true, 1);
-                Sms::create(['mobile' => $mobile, 'vars' => $message, 'result' => 'debug', 'op' => $fn]);
-                return ['message' => '短信发送成功。'];
-            }
-        */
+
+        if (env('APP_DEBUG')) {
+            Cache::put($ip . $fn, $code, 10);
+            Cache::put($ip . 'sms_cannot_send', true, 1);
+            Sms::create(['mobile' => $mobile, 'vars' => $message, 'result' => 'debug', 'op' => $fn]);
+            return ['message' => '短信发送成功。'];
+        }
+
         try {
             $easySms = new EasySms(config('sms.send_config'));
             $res = $easySms->send($mobile, $message);

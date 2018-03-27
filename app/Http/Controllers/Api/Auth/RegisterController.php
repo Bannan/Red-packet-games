@@ -27,11 +27,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'captcha' => 'required|captcha',
+            // 'captcha' => 'required|captcha',
             'mobile' => ['required', 'string', new Mobile, 'unique:users'],
             'parent_id' => 'required|numeric|exists:users,id',
             'password' => 'required|string|min:6|confirmed',
-            'confirmed' => 'required|string|min:4|confirmed',
+            'safety_code' => 'required|string|min:4|confirmed',
             'code' => ['bail', 'required', 'string', 'min:4', new Code('register')],
         ]);
     }
