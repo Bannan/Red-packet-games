@@ -24,7 +24,7 @@ class ScreeningController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('场次');
+            $content->header('游戏大厅');
             $content->description('列表');
 
             $content->body($this->grid());
@@ -41,7 +41,7 @@ class ScreeningController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('场次');
+            $content->header('游戏大厅');
             $content->description('修改');
 
             $content->body($this->form()->edit($id));
@@ -57,7 +57,7 @@ class ScreeningController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('场次');
+            $content->header('游戏大厅');
             $content->description('创建');
 
             $content->body($this->form());
@@ -76,7 +76,7 @@ class ScreeningController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->column('game.title', '所属游戏')->sortable();
-            $grid->title('场次名称');
+            $grid->title('游戏大厅');
             $grid->num('每组人数');
 
             $grid->created_at('创建日期');
@@ -97,7 +97,7 @@ class ScreeningController extends Controller
     {
         return Admin::form(Screening::class, function (Form $form) {
 
-            $form->tab('场次信息', function (Form $form) {
+            $form->tab('大厅信息', function (Form $form) {
                 $form->display('id', 'ID');
 
                 $form->select('game_id', '所属游戏')->options(Game::pluck('title', 'id'));
