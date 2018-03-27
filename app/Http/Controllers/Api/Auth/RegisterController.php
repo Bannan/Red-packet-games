@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Rules\Code;
 use App\Rules\Mobile;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
@@ -31,6 +32,7 @@ class RegisterController extends Controller
             'parent_id' => 'required|numeric|exists:users,id',
             'password' => 'required|string|min:6|confirmed',
             'confirmed' => 'required|string|min:4|confirmed',
+            'code' => ['bail', 'required', 'string', 'min:4', new Code('register')],
         ]);
     }
 
