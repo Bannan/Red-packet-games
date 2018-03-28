@@ -1,0 +1,246 @@
+2018-03-27 07:58:35 pid:7394 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
+2018-03-27 07:58:49 pid:7394 Workerman[start.php] stopping ...
+2018-03-27 07:58:49 pid:7394 Workerman[start.php] has been stopped
+2018-03-27 08:00:58 pid:7418 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
+2018-03-27 08:12:45 pid:7418 Workerman[start.php] stopping ...
+2018-03-27 08:12:45 pid:7418 Workerman[start.php] has been stopped
+2018-03-27 08:12:46 pid:7609 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
+2018-03-27 08:57:07 pid:7615 Exception: You can't send(array) to client, you need to convert it to a string.  in /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Protocols/Websocket.php:225
+Stack trace:
+#0 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Connection/TcpConnection.php(338): Workerman\Protocols\Websocket::encode(Array, Object(Workerman\Connection\TcpConnection))
+#1 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/gateway-worker/src/Gateway.php(594): Workerman\Connection\TcpConnection->send(Array, false)
+#2 [internal function]: GatewayWorker\Gateway->onWorkerMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Connection/TcpConnection.php(657): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #51)
+#5 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#6 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(2096): Workerman\Events\Select->loop()
+#7 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/gateway-worker/src/Gateway.php(279): Workerman\Worker->run()
+#8 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(1294): GatewayWorker\Gateway->run()
+#9 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(1127): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\Gateway))
+#10 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(1100): Workerman\Worker::forkWorkersForLinux()
+#11 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(459): Workerman\Worker::forkWorkers()
+#12 /home/vagrant/redpack/bootstrap/GatewayWorker/start.php(37): Workerman\Worker::runAll()
+#13 {main}
+2018-03-27 08:57:07 pid:7615 Worker process terminated
+2018-03-27 08:57:07 pid:7609 worker[redpack:7615] exit with status 64000
+2018-03-27 09:25:53 pid:7609 Workerman[start.php] stopping ...
+2018-03-27 09:25:53 pid:7609 Workerman[start.php] has been stopped
+2018-03-27 09:25:55 pid:8207 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
+2018-03-27 09:25:56 pid:8208 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8209 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8210 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8211 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8208] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8210] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8209] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8211] exit with status 65280
+2018-03-27 09:25:56 pid:8217 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8218 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8219 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8220 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8217] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8218] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8219] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8220] exit with status 65280
+2018-03-27 09:25:56 pid:8221 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8222 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8223 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8224 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8221] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8223] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8222] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8224] exit with status 65280
+2018-03-27 09:25:56 pid:8225 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8226 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8227 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8228 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8225] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8226] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8227] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8228] exit with status 65280
+2018-03-27 09:25:56 pid:8229 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8230 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8231 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8229] exit with status 65280
+2018-03-27 09:25:56 pid:8232 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8231] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8230] exit with status 65280
+2018-03-27 09:25:56 pid:8207 worker[YourAppBusinessWorker:8232] exit with status 65280
+2018-03-27 09:25:57 pid:8233 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8234 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8235 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8236 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8233] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8234] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8235] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8236] exit with status 65280
+2018-03-27 09:25:57 pid:8237 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8238 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8239 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8240 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8237] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8238] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8239] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8240] exit with status 65280
+2018-03-27 09:25:57 pid:8241 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8242 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8243 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8244 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8241] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8242] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8243] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8244] exit with status 65280
+2018-03-27 09:25:57 pid:8207 Workerman[start.php] stopping ...
+2018-03-27 09:25:57 pid:8245 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8246 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8247 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8248 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8245] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8246] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8248] exit with status 65280
+2018-03-27 09:25:57 pid:8207 worker[YourAppBusinessWorker:8247] exit with status 65280
+2018-03-27 09:25:57 pid:8207 Workerman[start.php] has been stopped
+2018-03-27 09:27:17 pid:8261 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
+2018-03-27 09:27:17 pid:8263 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8262 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8265 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8264 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8262] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8263] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8264] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8265] exit with status 65280
+2018-03-27 09:27:17 pid:8271 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8272 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8273 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8274 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8271] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8274] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8272] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8273] exit with status 65280
+2018-03-27 09:27:17 pid:8275 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8276 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8277 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8278 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8275] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8276] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8278] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8277] exit with status 65280
+2018-03-27 09:27:17 pid:8279 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8280 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8281 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8282 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8280] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8281] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8279] exit with status 65280
+2018-03-27 09:27:17 pid:8261 worker[YourAppBusinessWorker:8282] exit with status 65280
+2018-03-27 09:27:18 pid:8283 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8284 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8285 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8286 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8283] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8284] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8285] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8286] exit with status 65280
+2018-03-27 09:27:18 pid:8287 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8288 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8289 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8290 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8287] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8289] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8288] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8290] exit with status 65280
+2018-03-27 09:27:18 pid:8291 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8292 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8293 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8291] exit with status 65280
+2018-03-27 09:27:18 pid:8294 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8292] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8293] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8294] exit with status 65280
+2018-03-27 09:27:18 pid:8295 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8296 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8297 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8295] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8296] exit with status 65280
+2018-03-27 09:27:18 pid:8298 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8297] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8298] exit with status 65280
+2018-03-27 09:27:18 pid:8299 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8300 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8301 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8299] exit with status 65280
+2018-03-27 09:27:18 pid:8302 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8300] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8301] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8302] exit with status 65280
+2018-03-27 09:27:18 pid:8303 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8304 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8305 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8303] exit with status 65280
+2018-03-27 09:27:18 pid:8261 worker[YourAppBusinessWorker:8304] exit with status 65280
+2018-03-27 09:27:18 pid:8306 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8305] exit with status 65280
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8306] exit with status 65280
+2018-03-27 09:27:19 pid:8307 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8308 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8309 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8310 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8307] exit with status 65280
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8308] exit with status 65280
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8309] exit with status 65280
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8310] exit with status 65280
+2018-03-27 09:27:19 pid:8311 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8312 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8311] exit with status 65280
+2018-03-27 09:27:19 pid:8313 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8312] exit with status 65280
+2018-03-27 09:27:19 pid:8314 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8313] exit with status 65280
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8314] exit with status 65280
+2018-03-27 09:27:19 pid:8315 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8316 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8315] exit with status 65280
+2018-03-27 09:27:19 pid:8317 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8316] exit with status 65280
+2018-03-27 09:27:19 pid:8318 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8317] exit with status 65280
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8318] exit with status 65280
+2018-03-27 09:27:19 pid:8261 Workerman[start.php] stopping ...
+2018-03-27 09:27:19 pid:8261 Workerman[start.php] stopping ...
+2018-03-27 09:27:19 pid:8319 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8320 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8321 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8319] exit with status 65280
+2018-03-27 09:27:19 pid:8322 Worker process terminated with ERROR: E_ERROR "Class 'App\Http\Controllers\WorkermanController' not found in /home/vagrant/redpack/bootstrap/GatewayWorker/Applications/YourApp/Events.php on line 29"
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8320] exit with status 65280
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8322] exit with status 65280
+2018-03-27 09:27:19 pid:8261 worker[YourAppBusinessWorker:8321] exit with status 65280
+2018-03-27 09:27:19 pid:8261 Workerman[start.php] has been stopped
+2018-03-27 09:27:35 pid:8324 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
+2018-03-27 09:46:24 pid:8324 Workerman[start.php] stopping ...
+2018-03-27 09:46:24 pid:8324 Workerman[start.php] has been stopped
+2018-03-27 10:00:18 pid:8628 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
+2018-03-27 10:03:48 pid:8628 Workerman[start.php] stopping ...
+2018-03-27 10:03:48 pid:8628 Workerman[start.php] has been stopped
+2018-03-27 10:03:49 pid:8647 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
+2018-03-27 10:04:01 pid:8652 Exception: You can't send(array) to client, you need to convert it to a string.  in /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Protocols/Websocket.php:225
+Stack trace:
+#0 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Connection/TcpConnection.php(338): Workerman\Protocols\Websocket::encode(Array, Object(Workerman\Connection\TcpConnection))
+#1 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/gateway-worker/src/Gateway.php(558): Workerman\Connection\TcpConnection->send(Array)
+#2 [internal function]: GatewayWorker\Gateway->onWorkerMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Connection/TcpConnection.php(657): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #44)
+#5 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#6 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(2096): Workerman\Events\Select->loop()
+#7 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/gateway-worker/src/Gateway.php(279): Workerman\Worker->run()
+#8 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(1294): GatewayWorker\Gateway->run()
+#9 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(1127): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\Gateway))
+#10 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(1100): Workerman\Worker::forkWorkersForLinux()
+#11 /home/vagrant/redpack/bootstrap/GatewayWorker/vendor/workerman/workerman/Worker.php(459): Workerman\Worker::forkWorkers()
+#12 /home/vagrant/redpack/bootstrap/GatewayWorker/start.php(37): Workerman\Worker::runAll()
+#13 {main}
+2018-03-27 10:04:01 pid:8652 Worker process terminated
+2018-03-27 10:04:01 pid:8647 worker[redpack:8652] exit with status 64000
+2018-03-27 10:04:30 pid:8647 Workerman[start.php] stopping ...
+2018-03-27 10:04:30 pid:8647 Workerman[start.php] has been stopped
+2018-03-27 10:04:32 pid:8669 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
