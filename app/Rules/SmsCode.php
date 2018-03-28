@@ -5,13 +5,14 @@ namespace App\Rules;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Request;
+use PhpParser\Node\Scalar\String_;
 
-class Code implements Rule
+class SmsCode implements Rule
 {
     private $fn;
 
     /**
-     * Code constructor.
+     * SmsCode constructor.
      * @param String $fn
      */
     public function __construct(String $fn)
@@ -28,7 +29,7 @@ class Code implements Rule
      */
     public function passes($attribute, $value)
     {
-        $key = Request::getClientIp() . $this->fn;
+        $key = Request::getClientIp() . $this->fn . $value;
         if (Cache::get($key) == $value) {
             Cache::forget($key);
             return true;

@@ -32,8 +32,9 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $user->api_token = str_random(64);
-        $user->save();
+        $user->fill([
+            'api_token' => str_random(64),
+        ])->save();
         return $user;
     }
 

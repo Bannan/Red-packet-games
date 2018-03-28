@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
-use App\Rules\Code;
+use App\Rules\SmsCode;
 use App\Rules\Mobile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -28,11 +28,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             // 'captcha' => 'required|captcha',
+            'nickname' => 'required',
             'mobile' => ['required', 'string', new Mobile, 'unique:users'],
             'parent_id' => 'required|numeric|exists:users,id',
             'password' => 'required|string|min:6|confirmed',
             'safety_code' => 'required|string|min:4|confirmed',
-            'code' => ['bail', 'required', 'string', 'min:4', new Code('register')],
+            'code' => ['bail', 'required', 'string', 'min:4', new SmsCode('register')],
         ]);
     }
 
