@@ -106,6 +106,7 @@ class UserController extends Controller
 
             $form->display('id', 'ID');
             $form->text('openid', '微信openid');
+            $form->text('nickname', '昵称');
             $form->select('parent_id', '推荐人')->options(function ($id) {
                 if ($user = User::find($id)) {
                     return [$user->id => $user->nickname];
