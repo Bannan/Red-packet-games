@@ -10,11 +10,6 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
-
     /**
      * 验证字段
      * @return string
@@ -32,8 +27,9 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $user->api_token = str_random(64);
-        $user->save();
+        $user->fill([
+            'api_token' => str_random(64),
+        ])->save();
         return $user;
     }
 
