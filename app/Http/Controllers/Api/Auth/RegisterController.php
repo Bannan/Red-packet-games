@@ -14,11 +14,6 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
     /**
      * 验证器
      * @param array $data
@@ -27,13 +22,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 'captcha' => 'required|captcha',
             'nickname' => 'required',
             'mobile' => ['required', 'string', new Mobile, 'unique:users'],
             'parent_id' => 'required|numeric|exists:users,id',
             'password' => 'required|string|min:6|confirmed',
             'safety_code' => 'required|string|min:4|confirmed',
-            'code' => ['bail', 'required', 'string', 'min:4', new SmsCode('register')],
+            'sms_code' => ['bail', 'required', 'string', 'min:4', new SmsCode],
         ]);
     }
 

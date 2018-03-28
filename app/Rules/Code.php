@@ -6,11 +6,12 @@ use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Request;
 
-class SmsCode implements Rule
+class Code implements Rule
 {
-
     /**
-     * SmsCode constructor.
+     * Create a new rule instance.
+     *
+     * @return void
      */
     public function __construct()
     {
@@ -18,19 +19,20 @@ class SmsCode implements Rule
     }
 
     /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string $attribute
-     * @param  mixed $value
+     * 验证输入的图形验证码
+     * @param string $attribute
+     * @param mixed $value
      * @return bool
+     * @throws \Psr\SimpleCache\InvalidArgumentException
      */
     public function passes($attribute, $value)
     {
-        $key = sprintf('%s-%s', Request::get('mobile'), $value);
+        $key = sprintf('%s-%s', Request::getClientIp(), $value);
         if (Cache::get($key) == $value) {
-            Cache::forget($key);
+            Cache::delete($key);
             return true;
-        }
+        };
+
         return false;
     }
 
@@ -41,6 +43,6 @@ class SmsCode implements Rule
      */
     public function message()
     {
-        return '手机验证码 错误。';
+        return '验证码 错误。';
     }
 }

@@ -19,7 +19,7 @@ class ResetPasswordController extends Controller
     {
         $data = $this->validate($request, [
             'mobile' => ['required', new Mobile, 'exists:users'],
-            'code' => ['required', 'min:4', new SmsCode('reset')],
+            'sms_code' => ['required', 'min:4', new SmsCode],
             'password' => 'required|string|min:6|confirmed',
             'safety_code' => 'required|string|min:4|confirmed',
         ]);

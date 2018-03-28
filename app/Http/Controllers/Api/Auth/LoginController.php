@@ -10,11 +10,6 @@ class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
-
     /**
      * 验证字段
      * @return string

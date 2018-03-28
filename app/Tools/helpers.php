@@ -16,10 +16,11 @@ if (!function_exists('send_sms_code')) {
                 return response(['errors' => ['message' => '今天短信发送次数过多，请明天再试。']], 422);
             }
         }
-        $code = random_int(10000, 99999);
+
+        $code = random_int(100000, 999999);
         $message = ['template' => $template_id, 'data' => ['code' => $code]];
 
-        $key = $ip . $fn . $code;
+        $key = sprintf('%s-%s', $mobile, $code);
 
         if (env('APP_DEBUG')) {
             Cache::put($key, $code, 10);
