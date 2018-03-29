@@ -47,7 +47,7 @@ class User extends Authenticatable
      */
     public function parentAll()
     {
-        return $this->link_id ? static::whereIn('id', explode(',', $this->link_id))->get() : collect([]);
+        return $this->link_id ? static::whereIn('id', explode(',', $this->link_id))->get() : collect();
     }
 
     /**
