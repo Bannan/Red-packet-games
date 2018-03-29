@@ -20,6 +20,7 @@ class CaptchaController extends Controller
         $builder->build();
 
         $key = sprintf('%s-%s', $request->getClientIp(), $builder->getPhrase());
+
         Cache::put($key, $builder->getPhrase(), 10);
 
         return response($builder->get(), 200, ['Content-type' => 'image/jpeg']);

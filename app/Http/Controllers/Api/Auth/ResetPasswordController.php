@@ -20,13 +20,14 @@ class ResetPasswordController extends Controller
         $data = $this->validate($request, [
             'mobile' => ['required', new Mobile, 'exists:users'],
             'sms_code' => ['required', 'min:4', new SmsCode],
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|confirmed|different:safety_code',
             'safety_code' => 'required|string|min:4|confirmed',
         ]);
-        User::where('mobile', $request->get('mobile'))->fill([
+        User::where('mobile', $request->get('mobile'))->update([
             'password' => bcrypt($data['password']),
             'safety_code' => bcrypt($data['safety_code']),
-        ])->save();
+            'api_token' => str_random(64),
+        ]);
 
         return ['message' => '密码已重置完成'];
     }
