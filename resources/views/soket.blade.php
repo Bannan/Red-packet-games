@@ -1,21 +1,26 @@
 <html>
 <head>
     <title>放置文章标题</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> //这里是网页编码现在是gb2312
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <meta name="keywords" content="关键字" />
     <meta name="description" content="本页描述或关键字描述" />
 </head>
 <body>
-这里就是正文内容
+<img id="test1" />
+<div id="test2"></div>
 </body>
 <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
 <script>
-    /**
-     * 与GatewayWorker建立websocket连接，域名和端口改为你实际的域名端口，
-     * 其中端口为Gateway端口，即start_gateway.php指定的端口。
-     * start_gateway.php 中需要指定websocket协议，像这样
-     * $gateway = new Gateway(websocket://0.0.0.0:8282);
-     */
+
+    $.get("http://homestead.test/api/captcha", {}, function ($msg) {
+        console.log($msg);
+        $("#test1").attr("src",$msg.img_src);
+        $("#test2").html("<p>传输code:" + $msg.code + "</p>");
+    });
+</script>
+<script>
+    /*
+
     ws = new WebSocket("ws://192.168.10.10:8282");
     // 服务端主动推送消息时会触发这里的onmessage
     ws.onmessage = function(e){
@@ -35,5 +40,6 @@
                 alert(e.data);
         }
     };
+    */
 </script>
 </html>
