@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Screening extends Model
 {
@@ -25,5 +26,15 @@ class Screening extends Model
     public function red_prices()
     {
         return $this->hasMany(RedPrice::class);
+    }
+
+    /**
+     * 转化缩略图地址
+     * @param $thumb
+     * @return string
+     */
+    protected function getThumbAttribute($thumb)
+    {
+        return asset(Storage::url($thumb));
     }
 }
