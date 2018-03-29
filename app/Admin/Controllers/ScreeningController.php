@@ -111,7 +111,8 @@ class ScreeningController extends Controller
                 $form->hasMany('red_prices', '红包玩法', function (Form\NestedForm $form) {
                     $form->image('thumb', '缩略图');
                     $form->text('title', '名称')->rules('required|string');
-                    $form->number('value', '金额')->rules('required|numeric');
+                    $form->currency('value', '红包金额')->symbol('￥')->rules('required|numeric');
+                    $form->rate('service_fee', '服务费比例')->rules('required|numeric')->setWidth(1);
                 });
             });
         });
