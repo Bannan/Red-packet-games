@@ -20,6 +20,6 @@ class GameController extends Controller
 
     public function screenings(Game $game)
     {
-        return $game->screenings->all();
+        return $game->screenings;
     }
 }

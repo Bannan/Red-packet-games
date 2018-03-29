@@ -14,6 +14,6 @@ class ScreeningController extends Controller
 
     public function packets(Screening $screening)
     {
-        return $screening->red_prices->all();
+        return $screening->red_prices;
     }
 }

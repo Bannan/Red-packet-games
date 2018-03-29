@@ -100,7 +100,7 @@ class ScreeningController extends Controller
 
             $form->tab('大厅信息', function (Form $form) {
                 $form->display('id', 'ID');
-                $form->image('thumb', '大厅图')->rules('required');
+                $form->image('thumb', '缩略图')->rules('required');
                 $form->select('game_id', '所属游戏')->options(Game::pluck('title', 'id'))->rules('required');
                 $form->text('title', '场次名称')->rules('required|string');
                 $form->number('num', '每组人数')->rules('required|numeric');
@@ -108,10 +108,11 @@ class ScreeningController extends Controller
                 $form->display('created_at', '创建日期');
                 $form->display('updated_at', '修改日期');
             })->tab('红包配置', function (Form $form) {
-                $form->hasMany('red_prices', '红包列表', function (Form\NestedForm $form) {
-                    $form->image('thumb', '红包缩略图');
+                $form->hasMany('red_prices', '红包玩法', function (Form\NestedForm $form) {
+                    $form->image('thumb', '缩略图');
                     $form->text('title', '名称')->rules('required|string');
-                    $form->number('value', '金额')->rules('required|numeric');
+                    $form->currency('value', '红包金额')->symbol('￥')->rules('required|numeric');
+                    $form->rate('service_fee', '服务费比例')->rules('required|numeric')->setWidth(1);
                 });
             });
         });
