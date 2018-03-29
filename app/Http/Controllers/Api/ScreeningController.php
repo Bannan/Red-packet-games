@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\RedPrice as RedPriceResource;
 use App\Models\Screening;
 
 class ScreeningController extends Controller
@@ -14,6 +15,6 @@ class ScreeningController extends Controller
 
     public function packets(Screening $screening)
     {
-        return $screening->red_prices->all();
+        return RedPriceResource::collection($screening->red_prices);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Game;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Screening as ScreeningResource;
 
 class GameController extends Controller
 {
@@ -20,6 +21,6 @@ class GameController extends Controller
 
     public function screenings(Game $game)
     {
-        return $game->screenings->all();
+        return ScreeningResource::collection($game->screenings);
     }
 }
