@@ -4,7 +4,7 @@ use App\Models\Sms;
 use Overtrue\EasySms\EasySms;
 
 if (!function_exists('send_sms_code')) {
-    function send_sms_code($template, $mobile, $fn)
+    function send_sms_code($template_id, $mobile, $fn)
     {
         $ip = Request::getClientIp();
         if (Cache::has($ip . 'sms_cannot_send')) {
@@ -16,11 +16,14 @@ if (!function_exists('send_sms_code')) {
                 return response(['errors' => ['message' => '今天短信发送次数过多，请明天再试。']], 422);
             }
         }
-        $code = random_int(10000, 99999);
-        $message = ['template' => $template, 'data' => ['code' => $code]];
+
+        $code = random_int(100000, 999999);
+        $message = ['template' => $template_id, 'data' => ['code' => $code]];
+
+        $key = sprintf('%s-%s', $mobile, $code);
 
         if (env('APP_DEBUG')) {
-            Cache::put($ip . $fn, $code, 10);
+            Cache::put($key, $code, 10);
             Cache::put($ip . 'sms_cannot_send', true, 1);
             Sms::create(['mobile' => $mobile, 'vars' => $message, 'result' => 'debug', 'op' => $fn]);
             return ['message' => '短信发送成功。'];
@@ -32,7 +35,7 @@ if (!function_exists('send_sms_code')) {
             Sms::create(['mobile' => $mobile, 'vars' => $message, 'result' => $res, 'op' => $fn]);
             $arr = head($res);
             if ($arr['status'] === 'success') {
-                Cache::put($ip . $fn, $code, 10);
+                Cache::put($key, $code, 10);
                 Cache::put($ip . 'sms_cannot_send', true, 1);
                 return ['message' => '短信发送成功。'];
             }

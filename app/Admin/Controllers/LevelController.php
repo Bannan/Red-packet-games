@@ -74,8 +74,9 @@ class LevelController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->title('名称');
-            $grid->min('最小额度')->sortable();
-            $grid->max('最大额度')->sortable();
+            $grid->column('min', '最小额度(元)')->display(function () {
+                return '￥' . number_format($this->min, 2);
+            })->sortable();
             $grid->column('rebate', '返佣金额')->display(function ($rebate) {
                 return $rebate . '%';
             })->sortable();
@@ -95,8 +96,7 @@ class LevelController extends Controller
             $form->display('id', 'ID');
             $form->text('title', '层级名称')->rules('required|string');
             $form->currency('min', '最小额度')->symbol('￥')->rules('required|numeric');
-            $form->currency('max', '最大额度')->symbol('￥')->rules('required|numeric');
-            $form->rate('rebate', '返佣金额比例')->rules('required|numeric');
+            $form->rate('rebate', '返佣金额比例')->rules('required|numeric')->setWidth(2);
             $form->display('created_at', '创建日期');
             $form->display('updated_at', '修改日期');
         });
