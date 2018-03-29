@@ -247,3 +247,4 @@ Stack trace:
 2018-03-28 04:06:07 pid:3525 Workerman[bootstrap/GatewayWorker/start.php] start in DEBUG mode
 2018-03-28 05:42:37 pid:3525 Workerman[start.php] stopping ...
 2018-03-28 05:42:37 pid:3525 Workerman[start.php] has been stopped
+2018-03-29 09:20:46 pid:7516 Workerman[bootstrap/GatewayWorker/start.php] start in DAEMON mode

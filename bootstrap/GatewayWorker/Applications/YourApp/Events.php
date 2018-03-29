@@ -44,9 +44,18 @@ class Events
     * @param int $client_id 连接id
     * @param mixed $message 具体消息
     */
-   public static function onMessage($client_id, $message) {
+   public static function onMessage($client_id, $data) {
         // 向所有人发送 
         //Gateway::sendToAll("$client_id said $message");
+
+       $data = json_decode($data, true);
+       if(!Gateway::isUidOnline($data["token"]))
+       {
+            return false;
+       }
+
+
+
    }
    
    /**

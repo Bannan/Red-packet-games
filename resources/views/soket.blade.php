@@ -6,20 +6,13 @@
     <meta name="description" content="本页描述或关键字描述" />
 </head>
 <body>
-<img id="test1" />
-<div id="test2"></div>
+<input type="text" id="text">
+<input type="button" value="点击发送" id="test3">
 </body>
 <script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
 <script>
 
-    $.get("http://homestead.test/api/captcha", {}, function ($msg) {
-        console.log($msg);
-        $("#test1").attr("src",$msg.img_src);
-        $("#test2").html("<p>传输code:" + $msg.code + "</p>");
-    });
-</script>
-<script>
-    /*
 
     ws = new WebSocket("ws://192.168.10.10:8282");
     // 服务端主动推送消息时会触发这里的onmessage
@@ -40,6 +33,9 @@
                 alert(e.data);
         }
     };
-    */
+    $("#test3").on("click",function (e) {
+        ws.send($("#text").val());
+    });
+
 </script>
 </html>
