@@ -90,6 +90,7 @@ class UserController extends Controller
             $grid->filter(function ($filter) {
                 $filter->like('openid', '微信openid');
                 $filter->like('mobile', '手机号');
+                $filter->between('balance', '余额');
                 $filter->between('created_at', '注册日期')->datetime();
             });
         });
