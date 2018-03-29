@@ -8,6 +8,10 @@ class RedPrice extends Model
 {
     protected $guarded = [];
 
+    protected $casts = [
+        'value' => 'double',
+    ];
+
     /**
      * 所属场次
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

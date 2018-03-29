@@ -18,6 +18,7 @@ class CreateScreeningsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('game_id')->index()->comment('所属游戏');
             $table->string('title', 20)->comment('游戏大厅，如：2人场');
+            $table->string('thumb')->comment('大厅缩略图');
             $table->unsignedInteger('num')->comment('每组人数，如：2');
             $table->timestamps();
 
