@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('nickname', 30)->nullable()->comment('昵称');
             $table->string('api_token', 64)->nullable()->comment('token认证');
             $table->unsignedInteger('parent_id')->nullable()->index()->comment('推荐人id');
-            $table->text('link_id')->nullable()->comment('下属人员id，多个以逗号隔开');
+            $table->string('link_id', 700)->nullable()->index()->comment('所有上级id，多个以逗号隔开');
             $table->unsignedTinyInteger('robot')->default(0)->index()->comment('机器人');
             $table->unsignedDecimal('balance', 10, 4)->default(0)->comment('余额');
             $table->rememberToken()->comment('记住我');
