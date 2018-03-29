@@ -31,7 +31,7 @@ class SmsController extends Controller
     {
         $this->validate($request, [
             'code' => 'required|min:4',
-            'mobile' => ['required', new Mobile(), 'exists:users']
+            'mobile' => ['required', new Mobile, 'exists:users']
         ]);
         return send_sms_code(config('sms.templates.register'), $request->mobile, __FUNCTION__);
     }
