@@ -15,7 +15,7 @@ class TestController extends Controller
         $infos = $service->getAllotInfo();
         return [
             'infos' => $infos,
-            'min_key' => collect($infos)->min(),
+            'min_key' => collect($infos)->search(collect($infos)->min()),
             'min' => collect($infos)->min(),
             'max' => collect($infos)->max(),
         ];
