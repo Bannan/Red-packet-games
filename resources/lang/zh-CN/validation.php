@@ -147,5 +147,7 @@ return [
         'available' => '可用的',
         'size' => '大小',
         'nickname' => '昵称',
+        'captcha' => '图形验证码',
+        'safety_code' => '安全码',
     ],
 ];

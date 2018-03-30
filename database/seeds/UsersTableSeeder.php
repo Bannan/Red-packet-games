@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
                 'password' => bcrypt('bing8u'),
                 'safety_code' => bcrypt('bing8u'),
                 'nickname' => '春光灿烂',
-                'balance' => 99999,
+                'balance' => 99999.99,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

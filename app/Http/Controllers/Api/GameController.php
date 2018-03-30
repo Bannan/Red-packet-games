@@ -17,4 +17,9 @@ class GameController extends Controller
     {
         return Game::all();
     }
+
+    public function screenings(Game $game)
+    {
+        return $game->screenings;
+    }
 }
