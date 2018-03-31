@@ -3,60 +3,64 @@
 namespace App\Service;
 
 
+use Illuminate\Support\Collection;
+
 class RedAllot
 {
-    private $reds = [];
+    private $users;
+    private $money;
+    private $min;
+    private $max;
 
     /**
      * RedAllot constructor.
-     * @param array $users
+     * @param Collection $users
      * @param float $money
      * @param float $min
      * @param float $max
+     * @throws \Exception
      */
-    public function __construct(array $users, float $money, float $min, float $max)
+    public function __construct(Collection $users, float $money, float $min, float $max)
     {
-        $this->allot($users, $money, $min, $max);
+        $this->users = $users;
+        $this->money = $money;
+        $this->min = $min;
+        $this->max = $max;
+
+        $this->allotRed();
     }
 
-
     /**
-     * 返回多个用户抢的红包信息
-     * @return array
+     * 返回数据
+     * @return Collection
      */
-    public function getMoneyInfos(): array
+    public function getData() : Collection
     {
-        return $this->reds;
+        return $this->users;
     }
 
-
     /**
-     * 红包分配方法
-     * @param array $users
-     * @param float $money
-     * @param float $min
-     * @param float $max
-     * @return array
+     * 分配红包
      */
-    function allot(array $users, float $money, float $min, float $max)
+    protected function allotRed()
     {
-        $num = count($users);
-        if ($min * $num > $money) {
-            return [];
-        }
-        if ($max * $num < $money) {
-            return [];
-        }
+        $num = $this->users->count();
+
+        throw_if($this->min * $num > $this->money || $this->max * $num < $this->money,
+            \Exception::class,
+            '红包参数配置错误'
+        );
+
         while ($num >= 1) {
             $num--;
-            $kmix = max($min, $money - $num * $max);
-            $kmax = min($max, $money - $num * $min);
-            $kAvg = $money / ($num + 1);
+            $kmix = max($this->min, $this->money - $num * $this->max);
+            $kmax = min($this->max, $this->money - $num * $this->min);
+            $kAvg = $this->money / ($num + 1);
             $kDis = min($kAvg - $kmix, $kmax - $kAvg);
             $r = ((float)(rand(1, 10000) / 10000) - 0.5) * $kDis * 2;
             $k = round($kAvg + $r, 2);
-            $money -= $k;
-            $this->reds[$users[$num]] = $k;
+            $this->money -= $k;
+            $this->users[$num]->price = $k;
         }
     }
 
