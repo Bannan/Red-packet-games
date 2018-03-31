@@ -10,14 +10,15 @@ class TestController extends Controller
 {
     public function index()
     {
-        $users = User::limit(5)->get()->pluck('api_token')->toArray();
-        $service = new RedAllot($users, 10, 0.1);
-        $infos = $service->getAllotInfo();
+        $users = User::get()->pluck('api_token')->toArray();
+        $service = new RedAllot($users, 100, 1, 70);
+        $infos = $service->getMoneyInfos();
         return [
             'infos' => $infos,
             'min_key' => collect($infos)->search(collect($infos)->min()),
             'min' => collect($infos)->min(),
             'max' => collect($infos)->max(),
+            'sum' => collect($infos)->sum(),
         ];
     }
 }

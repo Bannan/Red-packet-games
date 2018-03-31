@@ -1,81 +1,63 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2018/3/30
- * Time: 16:06
- */
 
 namespace App\Service;
 
 
 class RedAllot
 {
-    // 红包信息
     private $reds = [];
 
     /**
      * RedAllot constructor.
      * @param array $users
-     * @param float $price
+     * @param float $money
      * @param float $min
+     * @param float $max
      */
-    public function __construct(array $users, float $price, float $min)
+    public function __construct(array $users, float $money, float $min, float $max)
     {
-        $this->allot($users, $price, $min);
+        $this->allot($users, $money, $min, $max);
     }
 
-    /**
-     * 计算用户所得红包金额
-     * @param array $users
-     * @param float $price
-     * @param float $min
-     */
-    public function allot(array $users, float $price, float $min)
-    {
-        $people = count($users) - 1;
-        $no_people = $people;
-        $data = [];
-        for ($i = 0; $i <= $people; $i++) {
-            if ($people == $i) {
-                $data[$users[$i]] = round($price, 2);
-            } else {
-                $data[$users[$i]] = round($this->randFloat($min, $this->qujian($price, $no_people)), 2);
-                $price = $price - $data[$users[$i]];
-                $no_people--;
-            }
-        }
-        $this->reds = $data;
-    }
 
     /**
-     * 返回红包信息
+     * 返回多个用户抢的红包信息
      * @return array
      */
-    public function getAllotInfo(): array
+    public function getMoneyInfos(): array
     {
         return $this->reds;
     }
 
-    /**
-     * 取区间
-     * @param $number1
-     * @param $number2
-     * @return float
-     */
-    protected function qujian($number1, $number2)
-    {
-        return round($number1 / $number2, 2);
-    }
 
     /**
-     * 取小数
-     * @param int $min
-     * @param int $max
-     * @return float|int
+     * 红包分配方法
+     * @param array $users
+     * @param float $money
+     * @param float $min
+     * @param float $max
+     * @return array
      */
-    protected function randFloat($min = 0, $max = 1)
+    function allot(array $users, float $money, float $min, float $max)
     {
-        return $min + mt_rand() / mt_getrandmax() * ($max - $min);
+        $num = count($users);
+        if ($min * $num > $money) {
+            return [];
+        }
+        if ($max * $num < $money) {
+            return [];
+        }
+        while ($num >= 1) {
+            $num--;
+            $kmix = max($min, $money - $num * $max);
+            $kmax = min($max, $money - $num * $min);
+            $kAvg = $money / ($num + 1);
+            $kDis = min($kAvg - $kmix, $kmax - $kAvg);
+            $r = ((float)(rand(1, 10000) / 10000) - 0.5) * $kDis * 2;
+            $k = round($kAvg + $r, 2);
+            $money -= $k;
+            $this->reds[$users[$num]] = $k;
+        }
     }
+
 }
