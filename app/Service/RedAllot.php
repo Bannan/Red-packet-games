@@ -26,8 +26,6 @@ class RedAllot
         $this->money = $money;
         $this->min = $min;
         $this->max = $max;
-
-        $this->allotRed();
     }
 
     /**
@@ -36,6 +34,7 @@ class RedAllot
      */
     public function getData() : Collection
     {
+        $this->allotRed();
         return $this->users;
     }
 
