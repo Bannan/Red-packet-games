@@ -9,15 +9,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Collection;
 
-class RedCompleteNotice implements ShouldQueue
+class RedFailedNotice implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $users;
 
     /**
-     * 给用户发送处理成功通知队列
-     * RedCompleteNotice constructor.
+     * 给用户发送失败通知队列
+     * RedFailedNotice constructor.
      * @param Collection $users
      */
     public function __construct(Collection $users)
@@ -26,7 +26,7 @@ class RedCompleteNotice implements ShouldQueue
     }
 
     /**
-     * 执行给用户发送处理成功通知
+     * 执行给用户发送失败通知
      *
      * @return void
      */
@@ -34,8 +34,6 @@ class RedCompleteNotice implements ShouldQueue
     {
         foreach ($this->users as $user) {
             // 调用 workman 通知 $user->api_token 即可
-            // 金额 $user->price
-            // 扣除手续费后
         }
     }
 }

@@ -10,7 +10,7 @@ class TestController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::limit(4)->get();
         $service = new RedAllot($users, 100, 1, 70);
         return $service->getData();
     }
