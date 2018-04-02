@@ -77,4 +77,12 @@ class User extends Authenticatable
         return $this->hasMany(Battle::class);
     }
 
+    /**
+     * 用户流水金额包括下级
+     * @return mixed
+     */
+    public function allFlowingWater()
+    {
+        return Battle::whereRaw('user_id in (select id from users where find_in_set(?, `link_id`))', $this->id)->sum('result_real');
+    }
 }

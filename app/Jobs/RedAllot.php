@@ -108,9 +108,13 @@ class RedAllot implements ShouldQueue
      */
     public function failed(Exception $exception)
     {
+
         foreach ($this->users as $user) {
             // 调用 workman 通知 $user->api_token 失败
         }
+
+
+        RedFailedNotice::dispatch($this->users);
 
     }
 }
