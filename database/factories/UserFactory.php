@@ -20,5 +20,6 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'nickname' => $faker->name,
         'password' => bcrypt('secret'),
         'safety_code' => bcrypt('secret'),
+        'balance' => rand(5, 999),
     ];
 });

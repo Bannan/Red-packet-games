@@ -102,7 +102,7 @@ class ScreeningController extends Controller
                 $form->display('id', 'ID');
                 $form->image('thumb', '缩略图')->rules('required');
                 $form->select('game_id', '所属游戏')->options(Game::pluck('title', 'id'))->rules('required');
-                $form->text('title', '场次名称')->rules('required|string');
+                $form->text('title', '大厅名称')->rules('required|string');
                 $form->number('num', '每组人数')->rules('required|numeric');
 
                 $form->display('created_at', '创建日期');
