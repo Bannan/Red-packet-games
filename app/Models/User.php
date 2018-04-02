@@ -67,4 +67,14 @@ class User extends Authenticatable
     {
         return static::whereRaw('find_in_set(?, `link_id`)', $this->id)->get();
     }
+
+    /**
+     * 用户的对战记录
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function battles()
+    {
+        return $this->hasMany(Battle::class);
+    }
+
 }
