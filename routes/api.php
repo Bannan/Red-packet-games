@@ -18,6 +18,6 @@ Route::get('games', 'Api\GameController@index');
 Route::get('games/{game}/screenings', 'Api\GameController@screenings');
 Route::get('screenings/{screening}/packets', 'Api\ScreeningController@packets');
 
-Route::get('test', function () {
-    return App\Models\User::find(1)->childrenAll();
-});
+Route::get('red/queue', 'Api\QueueController@index');
+
+Route::get('test', 'Api\TestController@index');
