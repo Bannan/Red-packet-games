@@ -15,11 +15,12 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\User::class, function (Faker $faker) {
     return [
-        'openid' => null,
+        'openid' => str_random(28),
         'mobile' => $faker->unique()->phoneNumber,
         'nickname' => $faker->name,
         'password' => bcrypt('secret'),
         'safety_code' => bcrypt('secret'),
         'balance' => rand(5, 999),
+        'api_token' => str_random(64),
     ];
 });

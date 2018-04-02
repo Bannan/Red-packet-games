@@ -18,6 +18,9 @@ Route::get('games', 'Api\GameController@index');
 Route::get('games/{game}/screenings', 'Api\GameController@screenings');
 Route::get('screenings/{screening}/packets', 'Api\ScreeningController@packets');
 
+
 //ws
 Route::get('ws','WorkermanController@index');
 Route::post('ws/send','WorkermanController@send');
+
+Route::get('test', 'Api\TestController@index');

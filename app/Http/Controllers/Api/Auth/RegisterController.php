@@ -29,7 +29,7 @@ class RegisterController extends Controller
             'parent_id' => 'required|numeric|exists:users,id',
             'password' => 'required|string|min:6|confirmed|different:safety_code',
             'safety_code' => 'required|string|min:4|confirmed',
-//            'sms_code' => ['bail', 'required', 'string', 'min:4', new SmsCode],
+            'sms_code' => ['bail', 'required', 'string', 'min:4', new SmsCode],
         ]);
     }
 
