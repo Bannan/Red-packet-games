@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Models\Battle;
+use Exception;
 use App\Models\RedPrice;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -68,18 +68,49 @@ class RedAllot implements ShouldQueue
 
         // 事物处理
         DB::transaction(function () use ($users, $red) {
+            // $this->type = max | min
+            $price_minus = $users->{$this->type}('price');
+
             foreach ($users as $user) {
+                // 找出这个输掉的用户, 扣除系统发送的红包金额
+                if ($user->price === $price_minus) {
+                    $user->balance -= $red->value;
+                }
+
+                // 计算扣除手续费后的收益
+                $price_add = round($users->price - ($red->service_fee / 100 * $users->price), 2);
+
+                // 用户余额增加
+                $user->balance += $price_add;
+                $user->save();
+
                 // 记录用户红包记录
                 $user->battles->create([
                     'red_price_id' => $this->rid,
                     'type' => $this->type,
                     'result' => $users->price,
-                    'result_real' => round($users->price - ($red->service_fee / 100 * $users->price), 2)
+                    'result_real' => $price_add,
                 ]);
             }
         });
 
         // 通知本批用户红包发放完成
         RedCompleteNotice::dispatch($users);
+
+
+    }
+
+    /**
+     * 给用户发送失败通知.
+     *
+     * @param  Exception $exception
+     * @return void
+     */
+    public function failed(Exception $exception)
+    {
+        foreach ($this->users as $user) {
+            // 调用 workman 通知 $user->api_token 失败
+        }
+
     }
 }
